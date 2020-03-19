@@ -26,8 +26,8 @@ export async function activate(): Promise<void> {
   registerCommands();
   registerGeneratorCallbacks();
   registerConfigurationListener();
-  setActiveProvider(componentsProvider);
   await updateConfiguration();
+  setActiveProvider(componentsProvider);
 }
 
 function setActiveProvider(provider: Provider): void {
