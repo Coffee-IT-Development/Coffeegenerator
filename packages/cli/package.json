@@ -1,6 +1,6 @@
 {
   "name": "@coffeeit/cli",
-  "version": "3.2.0",
+  "version": "4.0.0",
   "description": "CLI for CoffeeGenerator",
   "main": "./dist/index.js",
   "publisher": "CoffeeIT",
@@ -25,7 +25,7 @@
     "coffeegen": "dist/index.js"
   },
   "dependencies": {
-    "@coffeeit/generator": "^3.2.0",
+    "@coffeeit/generator": "^4.0.0",
     "async-lock": "^1.2.2",
     "colors": "^1.4.0",
     "conf": "^6.2.1",
