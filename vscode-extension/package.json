@@ -1,0 +1,186 @@
+{
+	"name": "coffeegenerator-vscode",
+	"displayName": "Coffee IT Generator",
+	"description": "Component library provider - allows for easy reuse of standard components",
+	"version": "1.0.0",
+	"publisher": "CoffeeIT",
+	"author": {
+		"name": "Julian Korf de Gidts",
+		"email": "korfdegidts@coffeeit.nl",
+		"url": "https://coffeeit.nl/team/"
+	},
+	"homepage": "https://coffeeit.nl",
+	"repository": {
+		"url": "https://gitlab.com/CoffeeIT/templates/coffeegenerator",
+		"directory": "vscode-extension",
+		"type": "git"
+	},
+	"icon": "media/icon.png",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.42.0"
+	},
+	"galleryBanner": {
+		"color": "#2800c5",
+		"theme": "dark"
+	},
+	"categories": [
+		"Snippets",
+		"Other"
+	],
+	"activationEvents": [
+		"onView:componentsOverview"
+	],
+	"main": "./dist/extension.js",
+	"scripts": {
+		"build": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"package": "rimraf node_modules && npm ci && vsce package",
+		"publish": "rimraf node_modules && npm ci && vsce publish"
+	},
+	"devDependencies": {
+		"@types/async-lock": "^1.1.1",
+		"@types/node": "^10.12.26",
+		"@types/vscode": "^1.42.0",
+		"chai": "^4.2.0",
+		"husky": "^4.2.3",
+		"mocha": "^5.2.0",
+		"rimraf": "^3.0.2",
+		"ts-node": "^7.0.1",
+		"tslint": "^5.13.0",
+		"tslint-config-airbnb": "^5.11.1",
+		"tslint-no-focused-test": "^0.5.0",
+		"typescript": "^3.7.5",
+		"vsce": "^1.74.0"
+	},
+	"dependencies": {
+		"@coffeeit/generator": "^3.2.0",
+		"async-lock": "^1.2.2",
+		"prod": "^1.0.1"
+	},
+	"contributes": {
+		"configuration": {
+			"title": "CoffeeGenerator",
+			"properties": {
+				"CoffeeGenerator.clientId": {
+					"type": "string",
+					"description": "The client ID that will be used when authenticating with the GitLab API",
+					"default": null,
+					"scope": "window"
+				},
+				"CoffeeGenerator.repoGroup": {
+					"type": "number",
+					"default": null,
+					"description": "ID of the repository group on GitLab where your platform repositories are located.",
+					"scope": "window"
+				},
+				"CoffeeGenerator.branch": {
+					"type": "string",
+					"default": null,
+					"description": "Name of the Git branch that houses the correct components",
+					"scope": "window"
+				}
+			}
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "Coffeeit-components",
+					"title": "Coffee Generator",
+					"icon": "media/dark/logo.png"
+				}
+			]
+		},
+		"views": {
+			"Coffeeit-components": [
+				{
+					"id": "componentsOverview",
+					"name": "Available components"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "componentsOverview.refresh",
+				"title": "Refresh",
+				"icon": "$(refresh)"
+			},
+			{
+				"command": "componentsOverview.search",
+				"title": "Search",
+				"icon": "$(search)"
+			},
+			{
+				"command": "componentsOverview.clearResults",
+				"title": "Clear results",
+				"icon": "$(close)"
+			},
+			{
+				"command": "componentsOverview.addComponent",
+				"title": "Add to workspace",
+				"icon": "$(save)"
+			},
+			{
+				"command": "componentsOverview.showDocs",
+				"title": "Show docs",
+				"icon": "$(book)"
+			},
+			{
+				"command": "componentsOverview.logout",
+				"title": "Log out",
+				"icon": "$(key)"
+			},
+			{
+				"command": "componentsOverview.resetSettings",
+				"title": "Reset all settings"
+			},
+			{
+				"command": "componentsOverview.resetRepoGroup",
+				"title": "Reset repository group"
+			}
+		],
+		"menus": {
+			"view/title": [
+				{
+					"command": "componentsOverview.refresh",
+					"when": "view == componentsOverview && isSearchQueryResult == false",
+					"group": "navigation"
+				},
+				{
+					"command": "componentsOverview.search",
+					"when": "view == componentsOverview",
+					"group": "navigation"
+				},
+				{
+					"command": "componentsOverview.logout",
+					"when": "view == componentsOverview"
+				},
+				{
+					"command": "componentsOverview.resetSettings",
+					"when": "view == componentsOverview"
+				},
+				{
+					"command": "componentsOverview.clearResults",
+					"when": "view == componentsOverview && isSearchQueryResult == true",
+					"group": "navigation"
+				},
+				{
+					"command": "componentsOverview.resetRepoGroup",
+					"when": "view == componentsOverview"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "componentsOverview.addComponent",
+					"when": "viewItem == component || viewItem == componentWithDocs",
+					"group": "inline"
+				},
+				{
+					"command": "componentsOverview.showDocs",
+					"when": "viewItem == componentWithDocs",
+					"group": "inline"
+				}
+			]
+		}
+	}
+}

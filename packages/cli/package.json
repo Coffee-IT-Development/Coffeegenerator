@@ -1,0 +1,42 @@
+{
+  "name": "@coffeeit/cli",
+  "version": "3.2.0",
+  "description": "CLI for CoffeeGenerator",
+  "main": "./dist/index.js",
+  "publisher": "CoffeeIT",
+  "repository": "https://gitlab.com/CoffeeIT/templates/coffeegenerator",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "watch": "nodemon --exec ts-node src/index.ts --watch src",
+    "build": "tsc"
+  },
+  "author": "Julian Korf de Gidts",
+  "license": "ISC",
+  "keywords": [
+    "coffee",
+    "generator"
+  ],
+  "files": [
+    "src",
+    "dist"
+  ],
+  "bin": {
+    "coffeeit": "dist/index.js",
+    "coffeegen": "dist/index.js"
+  },
+  "dependencies": {
+    "@coffeeit/generator": "^3.2.0",
+    "async-lock": "^1.2.2",
+    "colors": "^1.4.0",
+    "conf": "^6.2.1",
+    "configstore": "^5.0.1",
+    "open": "^7.0.2",
+    "yargs": "^15.1.0"
+  },
+  "devDependencies": {
+    "@types/async-lock": "^1.1.1",
+    "@types/configstore": "^4.0.0",
+    "@types/yargs": "^15.0.3"
+  },
+  "gitHead": "590c9ac52770cfb243994c44468c6726a89af43f"
+}

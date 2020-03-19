@@ -1,0 +1,46 @@
+{
+    "extends": [
+        "tslint:recommended",
+        "tslint-config-airbnb"
+    ],
+    "rulesDirectory": [
+        "tslint-no-focused-test"
+    ],
+    "rules": {
+        "align": [
+            true,
+            "parameters"
+        ],
+        "typedef": [
+            true,
+            "call-signature",
+            "property-declaration"
+        ],
+        "no-focused-test": true,
+        "ter-indent": [
+            false,
+            2
+        ],
+        "variable-name": [
+            true,
+            "ban-keywords",
+            "check-format",
+            "allow-leading-underscore"
+        ],
+        "array-type": [
+            true,
+            "array"
+        ],
+        "interface-name": [
+            true,
+            "never-prefix"
+        ],
+        "object-shorthand-properties-first": false,
+        "object-literal-sort-keys": [
+            true,
+            "shorthand-first"
+        ],
+        "no-require-imports": true,
+        "prefer-method-signature": true
+    }
+}

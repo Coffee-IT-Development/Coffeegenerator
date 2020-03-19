@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "dist",
+    "plugins": [
+      {
+        "name": "tslint-config-airbnb"
+      }
+    ],
+    "sourceMap": false,
+    "declaration": false
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
