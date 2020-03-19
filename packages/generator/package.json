@@ -1,6 +1,6 @@
 {
   "name": "@coffeeit/generator",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "Code generator for Coffee IT",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
