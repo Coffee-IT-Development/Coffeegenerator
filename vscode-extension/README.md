@@ -7,27 +7,27 @@ Yes, this is to be used in conjunction with an NPM registry. This tool should be
 ## Usage
 After installing, open the extension from the sidebar. On first install, you will be asked to give the app access to your GitLab account. 
 
-![login](../img/gif/login.gif)
+![login](https://github.com/Coffee-IT-Development/Coffeegenerator/blob/master/img/gif/login.gif?raw=true)
 
 If not configured, you will see a prompt asking you to choose a repository group. This is the place where your component library resides.
 
-![choose-group](../img/choose-repo.png)
+![choose-group](https://github.com/Coffee-IT-Development/Coffeegenerator/blob/master/img/choose-repo.png?raw=true)
 
 ## Functionality
 
 ### Download
 You can download shown components to your project folder:
 
-![download](../img/gif/download.gif)
+![download](https://github.com/Coffee-IT-Development/Coffeegenerator/blob/master/img/gif/download.gif?raw=true)
 
 ### View documentation
 If a component features documentation, you can view that as follows:
 
-![docs](../img/gif/docs.gif)
+![docs](https://github.com/Coffee-IT-Development/Coffeegenerator/blob/master/img/gif/docs.gif?raw=true)
 
 Documentation consists of a Markdown file, which you need to place in a folder called '.cgabout', in the root of the repository. This file needs to have the exact same name (with file extension if applicable) as the component itself. Example:
 
-![](../img/folder-struct.png)
+![](https://github.com/Coffee-IT-Development/Coffeegenerator/blob/master/img/folder-struct.png?raw=true)
 
 ## Preferences
 
