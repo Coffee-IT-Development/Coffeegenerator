@@ -14,7 +14,7 @@
 		"url": "https://github.com/Coffee-IT-Development/Coffeegenerator",
 		"type": "git"
 	},
-	"icon": "img/icon.png",
+	"icon": "media/icon.png",
 	"license": "MIT",
 	"engines": {
 		"vscode": "^1.42.0"
