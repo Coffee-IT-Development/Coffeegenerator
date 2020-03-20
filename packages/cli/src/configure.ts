@@ -7,6 +7,9 @@ const CLIENT_ID_KEY = 'clientId';
 const REPO_GROUP_ID_KEY = 'repoGroupId';
 const BRANCH_KEY = 'branch';
 
+const PROJECT_NAME = 'coffeegenerator-cli';
+const PROJECT_VERSION = '4.1.2';
+
 interface RepoConfig {
   [CLIENT_ID_KEY]: string;
   [REPO_GROUP_ID_KEY]: string;
@@ -19,8 +22,7 @@ const defaults = {
 };
 
 export async function initializeAPI(): Promise<void> {
-  const config = new Conf<RepoConfig>();
-
+  const config = getConfig();
   const repoGroupId = config.get(REPO_GROUP_ID_KEY, null);
   const clientId = config.get(CLIENT_ID_KEY, null);
   const branch = config.get(BRANCH_KEY, null);
@@ -36,7 +38,7 @@ export async function initializeAPI(): Promise<void> {
 
 export async function applyNewConfigurationOnDisk(
   { clientId, repoGroupId, branch }: RepoConfig): Promise<void> {
-  const config = new Conf<RepoConfig>();
+  const config = getConfig();
   config.set(REPO_GROUP_ID_KEY, repoGroupId);
   config.set(CLIENT_ID_KEY, clientId);
   config.set(BRANCH_KEY, branch);
@@ -46,7 +48,7 @@ export async function applyNewConfigurationOnDisk(
 }
 
 export function resetConfiguration(): void {
-  const config = new Conf<RepoConfig>();
+  const config = getConfig();
   config.clear();
   configureClientId(defaults[CLIENT_ID_KEY]);
   configureRepo(null, defaults[BRANCH_KEY]);
@@ -107,4 +109,11 @@ async function promptUserForSetting(
   }
 
   return answer;
+}
+
+function getConfig(): Conf {
+  return new Conf<RepoConfig>({
+    projectName: PROJECT_NAME,
+    projectVersion: PROJECT_VERSION,
+  });
 }
