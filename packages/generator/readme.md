@@ -48,17 +48,10 @@ Example:
 ```typescript
 const platforms = await getAllAvailableComponents();
 
-Object.keys(platforms).forEach(platform => {
-  console.log(`Platform ${platform.name} has the following components:`);
+platforms.foreach(platform => {
+console.log(`Platform ${platform.name} has the following components:`);
   console.log(platform.components[0].name);
-})
-```
-
-If parameter `platform` is supplied, output will look like the following:
-
-```typescript
-const components = await getComponents('React-Native');
-console.log(components[0].name)
+});
 ```
 
 ### 4. getAvailableComponentsForPlatform
@@ -68,7 +61,8 @@ Example:
 
 ```typescript
 const components = getAvailableComponentsForPlatform('react-native');
-console.log(components[0].name)
+console.log('The first platform is:');
+console.log(components[0].name);
 ```
 
 ### 5. getAvailableGroups
